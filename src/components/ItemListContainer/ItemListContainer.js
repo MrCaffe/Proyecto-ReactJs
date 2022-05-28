@@ -1,5 +1,6 @@
 import './ItemListContainer.scss'
 import {Button} from 'react-bootstrap'
+import {ItemCount} from '../ItemCount/ItemCount.js';
 
 export const ItemListContainer = ({name, id, type, cant, style}) => {
 
@@ -14,7 +15,7 @@ export const ItemListContainer = ({name, id, type, cant, style}) => {
 			<p> Cantidad de Hojas: {cant} </p>
 			<p> Estilo de Hoja: {style} </p>
 
-			<Button variant="primary" size="sm"> Buy </Button>
+			<ItemCount/>
 
 		</section>
 

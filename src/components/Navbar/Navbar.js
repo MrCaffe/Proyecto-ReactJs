@@ -1,8 +1,10 @@
 import './Navbar.scss'
+import {CartWidget} from '../CartWidget/CartWidget.js'
+
 
 export const Navbar = () => {
 
-  return (   
+  return ( 
     <header className="header"> 
       <div className="header__container">
         <h1 className="header__logo"> Ecommerce </h1>
@@ -15,6 +17,9 @@ export const Navbar = () => {
           <p className="header__navlink"> Contacto </p>
         </nav>
       </div>
+
+      <CartWidget/>
+
     </header>
   )
 }
