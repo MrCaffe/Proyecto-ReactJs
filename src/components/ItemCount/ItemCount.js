@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import {Button} from 'react-bootstrap'
 
 
@@ -18,6 +18,7 @@ export const ItemCount = (counter) => {
 		setContador(contador = 0)
 	}
 
+
 	return (
 		<section className="container my-5">
 			<h2> Productos en Carrito: {contador} </h2>
@@ -29,7 +30,7 @@ export const ItemCount = (counter) => {
 
 			<Button className="mx-2" variant="warning" size="sm" onClick={reset}> Resetear </Button>
 
-			<p className="mt-2"> Ultima Conexion: {new Date ().toLocaleString()} </p>
+			<p className="m t-2"> Ultima Conexion: {new Date ().toLocaleString()} </p>
 
 		</section>
 
