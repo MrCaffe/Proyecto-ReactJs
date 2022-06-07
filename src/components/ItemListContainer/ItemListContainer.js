@@ -4,6 +4,7 @@ import {Spinner} from 'react-bootstrap'
 import {ItemCount} from '../ItemCount/ItemCount.js';
 import {PedirDatos} from '../PedirDatos/PedirDatos.js';
 import {ItemList} from '../ItemList/ItemList.js'
+import {BuscarDato} from '../BuscarDato/BuscarDato.js'
 
 export const ItemListContainer = () => {
 
@@ -28,6 +29,8 @@ export const ItemListContainer = () => {
 
 	return (
 		<section className="list__container mx-5 mt-4">
+
+		<BuscarDato/>
 
 			{
 				loading

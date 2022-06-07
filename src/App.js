@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar} from './components/Navbar/Navbar.js';
 import {ItemListContainer} from './components/ItemListContainer/ItemListContainer.js';
 import {ItemCount} from './components/ItemCount/ItemCount.js';
+import {PokeApi} from './components/Ejemplos/PokeApi/PokeApi.js'
 
 
 
@@ -26,6 +27,7 @@ function App() {
       <Navbar/>
 
       <ItemListContainer/>
+     {/* <PokeApi/>*/}
 
     </div>
   );
