@@ -1,47 +1,51 @@
-
-import {useEffect, useState} from "react";
+// Tools
+import {useState, useEffect} from 'react'
 import {Spinner} from 'react-bootstrap'
-import {ItemCount} from '../ItemCount/ItemCount.js';
-import {PedirDatos} from '../PedirDatos/PedirDatos.js';
+
+// Component
+import {Products} from '../Mock/Mock.js'
 import {ItemList} from '../ItemList/ItemList.js'
-import {BuscarDato} from '../BuscarDato/BuscarDato.js'
 
 export const ItemListContainer = () => {
 
 	const [items, setItems] = useState([])
 	const [loading, setLoading] = useState([true])
 
+	const PedirDatos = () => {
+		return new Promise ((resolve, reject) => {
+			setTimeout(() => {
+				resolve(Products)		
+			}, 2000)
+		})	
+	}
 
-	useEffect (() =>  {
-		setLoading(true)
 
+	useEffect ( () => {
 		PedirDatos()
-			.then((resp) => {
+			.then ((resp) => {
 				setItems(resp)
 			})
-			.catch((error) => {
-				console.log("Error: ", error)
+			.catch ((error) => {
+				console.log(error)
 			})
-			.finally(() => {
+			.finally (() => {
 				setLoading(false)
 			})
 	}, [])
 
 	return (
-		<section className="list__container mx-5 mt-4">
-
-		<BuscarDato/>
-
+		<section>
+			
 			{
 				loading
 				? <Spinner animation="border" role="status">
   					<span className="visually-hidden">Loading...</span>
 					</Spinner>
-				: <ItemList items={items}/>		
+
+				: <ItemList items={items}/>
 			}
 
-			<ItemCount/>
-
 		</section>
-	);
+
+	)
 }

@@ -1,25 +1,23 @@
+// Styles
 import './Navbar.scss'
+
+// Components
 import {CartWidget} from '../CartWidget/CartWidget.js'
+
 
 
 export const Navbar = () => {
 
-  return ( 
-    <header className="header"> 
-      <div className="header__container">
-        <h1 className="header__logo"> Ecommerce </h1>
-
-        <nav className="header__navbar">
-       	  <p className="header__navlink"> Inicio </p>
-          <p className="header__navlink"> Productos </p>
-          <p className="header__navlink"> Servicios </p>
-          <p className="header__navlink"> Nosotros </p>
-          <p className="header__navlink"> Contacto </p>
-        </nav>
-      </div>
-
-      <CartWidget/>
-
+  return (
+    <header> 
+      <ul className="navBar">
+        <h1> E-Commerce </h1>
+        <li className="linkBar"> ENLACE_1 </li>  
+        <li className="linkBar"> ENLACE_2  </li>  
+        <li className="linkBar"> ENLACE_3  </li>  
+        <li className="linkBar"> ENLACE_4 </li>  
+        <li>< CartWidget/> </li>
+      </ul>
     </header>
   )
 }

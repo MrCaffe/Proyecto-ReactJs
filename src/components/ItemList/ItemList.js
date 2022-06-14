@@ -1,14 +1,16 @@
 import {Item} from '../Item/Item.js'
 
 export const ItemList = ({items}) => {
+
 	return (
-		<div>
-			<h2 className="list__title"> Productos: </h2>
-			<hr/>
+		<section>
+
+			<h1 className="container"> Productos En Categoria </h1>
 
 			{
-				items.map((item) => <Item key={item.id} item={item}/>)
+				items.map((item) => <Item item={item} key={item.id}/>)
 			}
-		</div>
+
+		</section>
 	)
 }

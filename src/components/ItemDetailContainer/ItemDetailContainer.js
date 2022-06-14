@@ -1,39 +1,49 @@
+// Tools
+import {useState, useEffect} from 'react'
+import {Spinner} from 'react-bootstrap'
 
-export const productos = [
-	{
-		id: 1,
-		nombre: "Blocks Rayados",
-		hojas: 40,
-		precio: 800,
-		img: 'https://via.placeholder.com/220'
-	},
-	{
-		id: 2,
-		nombre: "Blocks Cuadriculado",
-		hojas: 40,
-		precio: 800,
-		img: 'https://via.placeholder.com/220'
-	},
-	{
-		id: 3,
-		nombre: "Cuaderno Tapa Dura",
-		hojas: 100,
-		precio: 1500,
-		img: 'https://via.placeholder.com/220'
-	},
-	{
-		id: 4,
-		nombre: "Cuaderno Tapa Blanda",
-		hojas: 100,
-		precio: 1000,
-		img: 'https://via.placeholder.com/220'
-	},
-	{
-		id: 5,
-		nombre: "Cuaderno Tapa Flexible",
-		hojas: 40,
-		precio: 900,
-		img: 'https://via.placeholder.com/220'
-	},
-]
+// Component
+import {ItemListContainer} from '../ItemListContainer/ItemListContainer.js'
+import {ItemDetail} from '../ItemDetail/ItemDetail.js'
 
+
+export const ItemDetailContainer = () => {
+	const [loading2, setLoading2] = useState([true])
+	const [id, setId] = useState([])
+
+	const PedirId = () => {
+		return new Promise ((resolve, reject) =>{
+			setTimeout(() =>{
+				resolve(ItemListContainer)
+			}, 1000)
+		})
+	}
+
+	useEffect ( () => {
+		PedirId()
+			.then ((resp) => {
+				setId(resp)
+			})
+			.catch ((error) => {
+				console.log(error)
+			})
+			.finally (() => {
+				setLoading2(false)
+			})
+		},[])
+
+
+	return (
+		<section>
+			{
+				loading2
+				? <Spinner animation="border" role="status">
+  					<span className="visually-hidden">Loading...</span>
+					</Spinner>
+
+				: <ItemDetail item={id}/>
+			}
+		</section>
+
+	)
+}
