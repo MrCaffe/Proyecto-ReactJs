@@ -1,8 +1,13 @@
+// Tools
 import {useNavigate} from 'react-router-dom'
+import {useState, useEffect} from 'react'
+
+// Components
 import {ItemCount} from '../ItemCount/ItemCount.js'
+import {Count} from '../Count/Count.js'
 
 export const ItemDetail = ({item}) => {
-	
+
 	const navigate = useNavigate()
 
 	const handleVolver = () => {
@@ -10,15 +15,19 @@ export const ItemDetail = ({item}) => {
 	}
 
 	return (
-		<div className="container">
+		<section className="container">
 			<h2> Nombre: {item.name} </h2>
 			<h3> Precio: ${item.price}</h3>
 			<img src={item.img}/>
-			<ItemCount/>
+
+			
+			<ItemCount>
+				<Count/>
+			</ItemCount>
 			<hr/>
 
 			<button className="btn btn-warning mx-4" onClick={handleVolver}> Volver </button>
-		</div>
+		</section>
 	)
 
 }

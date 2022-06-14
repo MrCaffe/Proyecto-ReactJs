@@ -10,10 +10,10 @@ import {ItemList} from '../ItemList/ItemList.js'
 export const ItemListContainer = () => {
 
 	const [items, setItems] = useState([])
+
 	const [loading, setLoading] = useState(true)
 
 	const {categoryId} = useParams()
-	console.log(categoryId)
 
 	const PedirDatos = () => {
 		return new Promise ((resolve, reject) => {

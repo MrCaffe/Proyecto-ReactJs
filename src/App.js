@@ -30,6 +30,7 @@ function App() {
         <Route path='/categorias/:categoryId' element={<ItemListContainer/>}/> 
         <Route path='/item/:itemId' element={<ItemDetailContainer/>}/> 
         <Route path='/categorias' element={<Navbar2/>}/>
+        {/*<Route path='/carrito' element={<ItemCount/>}/>*/}
         <Route path='/contacto' element={<Contact/>}/>
         <Route path='/nosotros' element={<Us/>}/>
 
