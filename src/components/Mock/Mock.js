@@ -5,7 +5,8 @@ export const Products = [
 		description: 'Description 1',
 		stock: 25,
 		price: 1200,
-		img: 'https://via.placeholder.com/220'
+		img: 'https://via.placeholder.com/220',
+		category: 'remeras'
 	},
 	{
 		id: 2,
@@ -13,7 +14,8 @@ export const Products = [
 		description: 'Description 2',
 		stock: 40,
 		price: 2600,
-		img: 'https://via.placeholder.com/220'
+		img: 'https://via.placeholder.com/220',
+		category: 'buzos'
 	},
 	{
 		id: 3,
@@ -21,7 +23,8 @@ export const Products = [
 		description: 'Description 3',
 		stock: 10,
 		price: 300,
-		img: 'https://via.placeholder.com/220'
+		img: 'https://via.placeholder.com/220',
+		category: 'pantalones'
 	},
 	{
 		id: 4,
@@ -29,7 +32,8 @@ export const Products = [
 		description: 'Description 4',
 		stock: 20,
 		price: 800,
-		img: 'https://via.placeholder.com/220'
+		img: 'https://via.placeholder.com/220',
+		category: 'remeras'
 	},
 	{
 		id: 5,
@@ -37,6 +41,7 @@ export const Products = [
 		description: 'Description 5',
 		stock: 33,
 		price: 1000,
-		img: 'https://via.placeholder.com/220'
+		img: 'https://via.placeholder.com/220',
+		category: 'pantalones'
 	},
 ]

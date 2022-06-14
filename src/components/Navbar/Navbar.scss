@@ -6,8 +6,11 @@
 	max-width: 100%;
 	margin: 20px auto;
 	padding: 15px 100px;
-	background: slategray;
+	background: black;
 	list-style: none;
+	.linkTitle{
+		color: blue;
+	}
 	.linkBar{
 		color: white;
 	}

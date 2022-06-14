@@ -1,48 +1,54 @@
 // Tools
 import {useState, useEffect} from 'react'
 import {Spinner} from 'react-bootstrap'
+import {useParams} from 'react-router-dom'
 
 // Component
-import {ItemListContainer} from '../ItemListContainer/ItemListContainer.js'
+import {Products} from '../Mock/Mock.js'
 import {ItemDetail} from '../ItemDetail/ItemDetail.js'
 
-
 export const ItemDetailContainer = () => {
-	const [loading2, setLoading2] = useState([true])
-	const [id, setId] = useState([])
 
-	const PedirId = () => {
-		return new Promise ((resolve, reject) =>{
-			setTimeout(() =>{
-				resolve(ItemListContainer)
+	const [item, setItem] = useState(null)
+	const [loading, setLoading] = useState(true)
+
+	const {itemId} = useParams()
+
+	const PedirDatos = () => {
+		return new Promise ((resolve, reject) => {
+			setTimeout(() => {
+				resolve(Products)		
 			}, 1000)
-		})
+		})	
 	}
 
 	useEffect ( () => {
-		PedirId()
+		setLoading(true)
+
+		PedirDatos()
 			.then ((resp) => {
-				setId(resp)
+				setItem(resp.find((item) => item.id === Number(itemId)))
 			})
 			.catch ((error) => {
-				console.log(error)
+				console.log("Error: ", error)
 			})
 			.finally (() => {
-				setLoading2(false)
+				setLoading(false)
 			})
-		},[])
-
+	}, [])
 
 	return (
 		<section>
+			
 			{
-				loading2
+				loading
 				? <Spinner animation="border" role="status">
   					<span className="visually-hidden">Loading...</span>
 					</Spinner>
 
-				: <ItemDetail item={id}/>
+				: <ItemDetail item={item}/>
 			}
+
 		</section>
 
 	)
