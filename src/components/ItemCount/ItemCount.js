@@ -10,18 +10,32 @@ export const ItemCount = ({max, setCounter, counter, onAdd}) => {
 	}
 
 	const handleRestar = () => {
-		counter > 1 && setCounter(counter - 1)
+		counter > 0 && setCounter(counter - 1)
+	}
+
+	const btnRestarConfig = {
+		onClick: handleRestar,
+		className: `btn mx-1 ${counter === 0 ? "btn-outline-danger" : "btn-outline-primary"} ${counter === 0 ? "min-value" : ''}`,
+		disabled: counter === 0
+
+	}
+
+	if (max === 0) {
+		return (
+			<div className="my-3">
+				<p> No Hay Stock de Este Producto </p>
+			</div>
+		)
 	}
 	
 	return (
 		<div>
-			<button onClick={handleRestar}> Restar </button>
+			<button {...btnRestarConfig}> - </button>
 			<span className='mx-2'> {counter } </span>
-			<button onClick={handleSumar}> Sumar </button>
+			<button onClick={handleSumar} className={counter === max ? "btn mx-1 btn-outline-danger" : "btn mx-1 btn-outline-primary"} disabled={counter === max}> + </button>
 			<hr/>
-			<button onClick={onAdd}> Agregar al Carrito </button>
+			<button onClick={onAdd} disabled={counter === 0}> Agregar al Carrito </button>
 		</div>
-
 
 	)
 }

@@ -1,11 +1,12 @@
 // Tools
 import {useState, useEffect} from 'react'
-import {Spinner} from 'react-bootstrap'
+
 import {useParams} from 'react-router-dom'
 
 // Component
 import {Products} from '../Mock/Mock.js'
 import {ItemList} from '../ItemList/ItemList.js'
+import {Loader} from '../Loader/Loader.js'
 
 export const ItemListContainer = () => {
 
@@ -26,7 +27,7 @@ export const ItemListContainer = () => {
 
 	useEffect ( () => {
 		setLoading(true)
-
+		// Peticion de Datos al Mock
 		PedirDatos()
 			.then ((resp) => {
 				if (!categoryId) {
@@ -43,19 +44,23 @@ export const ItemListContainer = () => {
 			})
 	}, [categoryId])
 
+
+	if (loading) {
+		return 	<section className="container my-5">
+							<Loader/>
+						</section>
+	}
+
 	return (
 		<section>
-			
-			{
-				loading
-				? <Spinner animation="border" role="status">
-  					<span className="visually-hidden">Loading...</span>
-					</Spinner>
 
-				: <ItemList items={items}/>
-			}
-
+			<ItemList items={items}/>
+		
 		</section>
 
 	)
 }
+
+
+
+

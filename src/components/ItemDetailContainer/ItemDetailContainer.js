@@ -1,11 +1,11 @@
 // Tools
 import {useState, useEffect} from 'react'
-import {Spinner} from 'react-bootstrap'
 import {useParams} from 'react-router-dom'
 
 // Component
 import {Products} from '../Mock/Mock.js'
 import {ItemDetail} from '../ItemDetail/ItemDetail.js'
+import {Loader} from '../Loader/Loader.js'
 
 export const ItemDetailContainer = () => {
 
@@ -42,9 +42,7 @@ export const ItemDetailContainer = () => {
 			
 			{
 				loading
-				? <Spinner animation="border" role="status">
-  					<span className="visually-hidden">Loading...</span>
-					</Spinner>
+				? <Loader/>
 
 				: <ItemDetail item={item}/>
 			}

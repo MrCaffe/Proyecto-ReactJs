@@ -6,13 +6,14 @@ import {useContext, useEffect, useState } from 'react'
 
 // Components
 import {ItemCount} from '../ItemCount/ItemCount.js'
+import {MemoComp} from '../Ejemplos/MemoComp.js'
 // import {Count} from '../Count/Count.js'
 
 export const ItemDetail = ({item}) => {
 
 	const {addItem, isInCart} = useContext(CartContext)
 
-	const [cantidad, setCantidad] = useState(1)
+	const [cantidad, setCantidad] = useState(0)
 
 	const navigate = useNavigate()
 
@@ -21,6 +22,9 @@ export const ItemDetail = ({item}) => {
 	}
 
 	const handleAgregar = () => {
+
+		if (cantidad === 0) return
+
 		const itemToCart = {
 			...item,
 			cantidad
@@ -34,6 +38,8 @@ export const ItemDetail = ({item}) => {
 		<section className="container">
 			<h2> Nombre: {item.name} </h2>
 			<h3> Precio: ${item.price}</h3>
+			<MemoComp/>
+
 			<img src={item.img}/>
 			<hr/>
 
